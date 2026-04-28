@@ -371,9 +371,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tag'
-          
-        '401':
-          $ref: '#/components/responses/Unauthorized'
+
     post:
       security:
         - bearerAuth: []
