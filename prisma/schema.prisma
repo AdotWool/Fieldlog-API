@@ -1,0 +1,67 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+ id Int @id @default(autoincrement())
+
+ email String @unique
+ password String
+
+ role Role @default(USER)
+
+ collection Collection[]
+ fieldlog Fieldlog[]
+
+ @@map("users")
+}
+
+model Collection {
+  id Int @id @default(autoincrement())
+
+  name String
+  fieldlog Fieldlog[]
+
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId Int @map("user_id")
+
+  @@unique([name, ownerId])
+  @@map("collections")
+}
+
+model Fieldlog {
+  id Int @id @default(autoincrement())
+
+  name String
+  description String
+  tags Tag[]
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  collectionId Int @map("collection_id")
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ownerId Int @map("user_id")
+
+
+  @@map("logs")
+}
+
+model Tag {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+
+  fieldlog Fieldlog[]
+
+  @@map("tags")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
