@@ -4,10 +4,11 @@
   "description": "A simple fieldlog API to catalogue a interesting thing",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env src/server.js",
     "dev": "node --env-file=.env --watch src/server.js",
-    "seed": "node prisma/seed.js",
-    "migrate:deploy": "npx prisma migrate deploy --evn-file=.env.dev",
+    "start": "node src/server.js",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "seed:dev": "node --env-file=.env prisma/seed.js",
     "seed:prod": "node prisma/seed.js"
   },
   "keywords": [],
@@ -21,7 +22,7 @@
     "eslint-config-prettier": "^10.1.5",
     "globals": "^16.2.0",
     "prettier": "^3.6.1",
-    "prisma": "^7.3.0"
+    "prisma": "^7.8.0"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
