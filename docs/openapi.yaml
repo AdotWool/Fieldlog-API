@@ -696,7 +696,7 @@ components:
       description: Search by name
       schema:
         type: string
-        example: 'Fish'
+        example: 'Buildings'
 
     QueryCollection:
       name: collection
@@ -705,7 +705,7 @@ components:
       description: Search by collection
       schema:
         type: string
-        example: 'Fish'
+        example: 'Buildings'
 
     QueryTag:
       name: tag
@@ -718,8 +718,6 @@ components:
           type: string
         example:
           - 'Buildings'
-          - 'Trees'
-          - 'Fish'
       
   responses:
     NotFound:
