@@ -1,11 +1,13 @@
 {
-  "name": "Fieldlog API",
+  "name": "fieldlog-api",
   "version": "1.0.0",
   "description": "A simple fieldlog API to catalogue a interesting thing",
   "main": "index.js",
   "scripts": {
     "dev": "node --env-file=.env --watch src/server.js",
-    "seed": "node prisma/seed.js"
+    "seed": "node prisma/seed.js",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "seed:prod": "node prisma/seed.js"
   },
   "keywords": [],
   "author": "",
