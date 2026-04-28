@@ -217,6 +217,9 @@ paths:
 
         '401':
           $ref: '#/components/responses/Unauthorized'
+          
+        '400':
+          $ref: '#/components/responses/InvalidInput'
     post:
       security:
         - bearerAuth: []
@@ -371,6 +374,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Tag'
+          
+        '400':
+          $ref: '#/components/responses/InvalidInput'
 
     post:
       security:
