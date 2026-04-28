@@ -9,14 +9,21 @@ import {
 export async function getAllFieldlogsHandler(req, res) {
   const {
     name = '',
-    fieldlog = '',
-    tags = []
+    collection = '',
+    tag = null
   } = req.query;
+
+  let tags;
+  if (tag) {
+    if (Array.isArray(tag)) tags = tag;
+    else tags = [tag];
+  }
 
   const options = {
     name,
-    fieldlog,
-    tags
+    collection,
+    tags,
+    ownerId: req.user.id
   };
   let fieldlogs = await getAllFieldlogs(options);
   res.status(200).json(fieldlogs);

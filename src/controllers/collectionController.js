@@ -12,7 +12,8 @@ export async function getAllCollectionsHandler(req, res) {
   } = req.query;
 
   const options = {
-    name
+    name,
+    ownerId: req.user.id
   };
   let collections = await getAllCollections(options);
   res.status(200).json(collections);

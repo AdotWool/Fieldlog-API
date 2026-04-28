@@ -122,7 +122,7 @@ export const validateFieldlogQuery = [
     .isString()
     .withMessage('collection name must be a string')
     .bail()
-    .isLength({min: 10})
+    .isLength({min: 3})
     .withMessage('Collection name must be at least 3 characters'),
 
   query('tags.*')
@@ -132,7 +132,7 @@ export const validateFieldlogQuery = [
     .isString()
     .withMessage('Tags must be strings')
     .bail()
-    .isLength({min: 10})
+    .isLength({min: 3})
     .withMessage('Tags must be at least 3 characters'),
 
   handleValidationErrors,

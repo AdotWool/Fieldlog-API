@@ -1,14 +1,18 @@
 import prisma from '../config/db.js';
 
-export async function getAll({ name, collection, tags }) {
+export async function getAll({ name, collection, tags, ownerId }) {
   const conditions = {};
-  if (collection) {
-    conditions.AND = [
-      { name: { contains: name, mode: 'insensitive' } },
-      { collection: { contains: collection, mode: 'insensitive' } },
-      { tags: { name: { has: tags, mode: 'insensitive' } } },
-    ];
+  if (name) {
+    conditions.name = { contains: name, mode: 'insensitive' };
   }
+  if (collection) {
+    conditions.collection = { name: { contains: collection, mode: 'insensitive' } };
+  }
+  if (tags) {
+    conditions.tags = { some: { name: { in: tags, mode: 'insensitive' } } };
+  }
+  conditions.ownerId = ownerId;
+
   const fieldlogs = await prisma.fieldlog.findMany({
     where: conditions,
     include: {

@@ -1,10 +1,12 @@
 import prisma from '../config/db.js';
 
-export async function getAll({ name }) {
-  let conditions = {};
+export async function getAll({ name, ownerId }) {
+  const conditions = {};
   if (name) {
-    conditions = { name: { contains: name, mode: 'insensitive' } };
+    conditions.name = { contains: name, mode: 'insensitive' };
   }
+  conditions.ownerId = ownerId;
+
   const collections = await prisma.collection.findMany({
     where: conditions
   });

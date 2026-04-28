@@ -713,8 +713,13 @@ components:
       required: false
       description: Search by tag
       schema:
-        type: string
-        example: 'Fish'
+        type: array
+        items:
+          type: string
+        example:
+          - 'Buildings'
+          - 'Trees'
+          - 'Fish'
       
   responses:
     NotFound:
