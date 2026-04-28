@@ -1,0 +1,2 @@
+-- CreateEnum
+CREATE TYPE "FORCEFUL" AS ENUM ('FORCE');
