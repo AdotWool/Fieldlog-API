@@ -28,6 +28,9 @@ app.use('/api/logs', fieldlogRoutes);
 app.use('/api/collections', collectionRoutes);
 app.use('/api/tags', tagRoutes);
 app.use('/api/auth', authRoutes);
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');
