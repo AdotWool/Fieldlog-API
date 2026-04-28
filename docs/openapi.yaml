@@ -6,9 +6,9 @@ info:
   description: Documentation for the fieldlog API
 
 servers:
-  - url: https://fieldlog-api.onrender.com
+  - url: https://fieldlog-api.onrender.com/api
     description: Production server
-  - url: http://localhost:8080
+  - url: http://localhost:8080/api
     description: Local development server
 
 tags:
