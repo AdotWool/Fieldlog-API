@@ -4,6 +4,7 @@
   "description": "A simple fieldlog API to catalogue a interesting thing",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "node --env-file=.env --watch src/server.js",
     "seed": "node prisma/seed.js",
     "migrate:deploy": "npx prisma migrate deploy",
