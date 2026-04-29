@@ -14,12 +14,12 @@ export const validateId = [
 export const validateCreateFieldlog = [
   body('name')
     .exists({ values: 'falsy' })
-    .withMessage('Title is required')
+    .withMessage('Name is required')
     .bail()
     .trim()
     .escape()
     .isLength({ min: 3 })
-    .withMessage('Title must be at least 3 characters'),
+    .withMessage('Name must be at least 3 characters'),
 
   body('description')
     .exists({ values: 'falsy' })

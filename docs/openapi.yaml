@@ -597,7 +597,7 @@ components:
           example: "A big sequoia I found in the national park!"
         collection:
           type: string
-          example: "Trees"
+          example: "Forests"
         tags:
           type: array
           items:
