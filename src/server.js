@@ -8,6 +8,7 @@ import fieldlogRoutes from './routes/fieldlogRoutes.js';
 import collectionRoutes from './routes/collectionRoutes.js';
 import tagRoutes from './routes/tagRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import seed from '../prisma/seed.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,9 @@ app.use('/api/tags', tagRoutes);
 app.use('/api/auth', authRoutes);
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
+});
+app.get('/api/seed', async (req, res) => {
+  res.status(200).json({success: await seed()});
 });
 
 app.use((req, res, next) => {

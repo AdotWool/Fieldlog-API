@@ -8,8 +8,8 @@
     "start": "node src/server.js",
     "migrate:dev": "npx prisma migrate dev",
     "migrate:deploy": "npx prisma migrate deploy",
-    "seed:dev": "node --env-file=.env prisma/seed.js",
-    "seed:prod": "node prisma/seed.js"
+    "seed:dev": "node --env-file=.env prisma/npmseed.js",
+    "seed:prod": "node prisma/npmseed.js"
   },
   "keywords": [],
   "author": "",
