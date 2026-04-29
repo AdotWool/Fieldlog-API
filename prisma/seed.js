@@ -35,7 +35,6 @@ export default async function seed() {
         { name: 'Test2' },
         { name: 'First' },
         { name: 'Text' },
-        { name: 'Fish' },
         { name: 'Building' },
         { name: 'Tree' },
       ]
@@ -53,7 +52,7 @@ export default async function seed() {
             ownerId: user.id,
           },
           {
-            name: 'Trees',
+            name: 'Forests',
             ownerId: user.id,
           },
           {
